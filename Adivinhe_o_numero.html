@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+  	body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  background: black;
+  
+  justify-content: center;
+  align-items: center;
+}
+#teclado {
+  display: none;
+  flex-direction: column;
+  padding: 15px;
+  background: black;
+  border-radius: 15px;
+  border: 1px solid white;
+  opacity: 0;
+  transition: all 0.5s ease-out;
+  animation: Box 20s infinite linear;
+}
+#teclado .l {
+  display: flex;
+  flex-direction: row;
+}
+#teclado .l button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  font-family: Sans-Serif;
+  color: white;
+  background: black;
+  border: 1px solid white;
+  box-shadow: 0px 2px 4px #0DFF00;
+  margin: 8px;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  font-weight: 250;
+  font-size: 15pt;
+  transition: all 0.5s ease-out;
+  animation: Box 20s infinite linear;
+}
+#teclado .l button:active, #teclado .l button:hover{
+  width: 72px;
+  height: 72px;
+  
+}
+#aviso {
+  display: none;
+  opacity: 0;
+  flex-direction: column;
+  z-index: 3;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  background: black;
+  height: 100vh;
+
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  opacity: 1;
+  color: white;
+  transition: all 0.5s ease-out;
+}
+#aviso h1 {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 300;
+  padding: 10px;
+  width: 80%;
+}
+#aviso div {
+  display: flex;
+  height: 100px;
+  width: 100px;
+  background: white;
+  border-radius: 50%;
+  margin: 70px;
+  transition: all 0.5s ease-out;
+  animation: bordarCor 5s infinite linear;
+  align-items: center;
+  justify-content: center;
+  color: rgba(0, 73, 78, 1);
+  font-weight: 350;
+  font-size: 12pt;
+}
+#aviso p {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-family: Sans-Serif;
+  font-weight: 300;
+  opacity: 1;
+  transition: all 0.5s ease-out;
+  animation: Opcity 2s infinite linear;
+}
+
+@keyframes bordarCor {
+  0% {
+    box-shadow: 0px 2px 4px rgba(0, 233, 250, 1);
+    
+  }25%{
+    border: none;
+    box-shadow: 0px 4px 8px rgba(0, 225, 250, 1);
+ 
+  }50%{
+    border: none;
+    box-shadow: 0px 2px 4px rgba(0, 229, 230, 1);
+  }75%{
+    border: none;
+    box-shadow: 0px 4px 16px rgba(0, 233, 250, 1);
+  }
+}
+
+@keyframes Opcity {
+  0% {
+    color: white;
+  }
+  50% {
+    color: skyblue;
+  }
+  100% {
+    color: White;
+  }
+}
+
+@media (min-width: 768px) {
+  #aviso {
+  display: flex;
+  flex-direction: column;
+  z-index: 3;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 30px;
+  background: black;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  opacity: 1;
+  color: white;
+  transition: all 0.5s ease-out;
+}
+#over {
+  display: flex;
+  flex-direction: column;
+  background: black;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  height: 100vh;
+  width: 100vw;
+}
+}
+
+#props {
+  color: white;
+  font-family: Sans-Serif;
+  font-weight: 200;
+  width: 100%;
+  text-align: justify;
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  
+  display: none;
+  flex-direction: column;
+  padding: 10px;
+}
+#props h2 {
+  padding: 15px;
+  font-weight: 200;
+  transition: all 0.5s ease-in-out;
+  margin: 30px;
+  border-radius: 15px;
+  text-align: center;
+  transition: all 0.8s ease-out;
+  animation: Box 20s infinite linear;
+}
+
+@keyframes Box {
+  0% {
+    box-shadow: 2px 8px 16px rgba(0, 225, 250, 1);
+    border: 1px solid rgba(0, 225, 250, 1);
+    color: rgba(0, 225, 250, 1);
+  }
+  20% {
+    box-shadow: 2px 8px 16px #FF9300;
+    border: 1px solid #FF9300;
+    color: #FF9300;
+  }
+  40% {
+    box-shadow: 2px 8px 16px #F600FF;
+    border: 1px solid #F600FF;
+    color: #F600FF;
+  }
+  60% {
+    box-shadow: 2px 8px 16px #1B00FF;
+    border: 1px solid #1B00FF;
+    color: #1B00FF;
+  }
+  80% {
+    box-shadow: 2px 8px 16px #C100FF;
+    border: 1px solid #C100FF;
+    color: #C100FF;
+  }
+  100% {
+    box-shadow: 2px 8px 16px rgba(0, 225, 250, 1);
+    border: 1px solid rgba(0, 225, 250, 1);
+    color: rgba(0, 225, 250, 1);
+  }
+}
+
+#over {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  height: 100%;
+  opacity: 0;
+  width: 100%;
+  background: black;
+  color: red;
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: all 0.5s ease-out;
+}
+#over h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 300;
+}
+#again {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: green;
+  font-weight: 200;
+  color: white;
+  border-radius: 10px;
+  width: 180px;
+  padding: 15px;
+  border: none;
+  font-size: 15pt;
+  margin: 20px;
+}
+  </style>
+  <title>Adivinha o Número</title>
+</head>
+<body>
+<div id='props'>
+  <h2 id='tt'>
+      Número de tentativas: 
+  </h2>
+</div>
+  <div id='teclado'>
+    <section class='l'>
+      <button value='1' class='b'>
+        1
+      </button>
+      <button value='2' class='b'>
+        2
+      </button>
+      <button value='3' class='b'>
+        3
+      </button>
+    </section>
+    <section class='l'>
+      <button value='4' class='b'>
+        4
+      </button>
+      <button value='5' class='b'>
+        5
+      </button>
+      <button value='6' class='b'>
+        6
+      </button>
+    </section>
+    <section class='l'>
+      <button value='7' class='b'>
+        7
+      </button>
+      <button value='8' class='b'>
+        8
+      </button>
+      <button value='9' class='b'>
+        9
+      </button>
+    </section>
+
+  </div>
+  <div id='aviso'>
+    <h1>
+      Adivinhe o número em que estou pensado...
+    </h1>
+    <div>
+      Nível 1
+    </div>
+     <p>
+      	Jogo de "Acerte o número" <br />
+      	Você tem três tentativas pra acertar um número sorteado entre 1 e 9. Vamos jogar, teste a sua sorte... 😁<br/>
+      Toque pra jogar
+    </p>
+  </div>
+  <div id='over'>
+  	<h1 id='classific'>
+  	  Game Over.
+  	</h1>
+  	<button id='again'>
+  		Jogar de novo.
+  	</button>
+  </div>
+  <script>
+  	let props = document.getElementById('props');
+let teclado = document.getElementById('teclado');
+let again = document.getElementById('again');
+let bots = document.querySelectorAll('.b');
+
+let campoTt = document.getElementById('tt');
+
+let aviso = document.getElementById('aviso');
+let sort;
+let tentativas;
+let ganado = false;
+let level = 0;
+
+let over = document.getElementById('over');
+let classific = document.getElementById('classific');
+aviso.addEventListener("click", () => {
+  teclado.style.display = 'flex';
+  props.style.display = 'flex'
+  bots.forEach(bot => {
+    bot.style.animation = 'Box 20s infinite linear';
+    bot.style.color = 'white';
+  })
+  tentativas = 3;
+  aviso.style.opacity = '0';
+  const T = setTimeout(() => {
+    aviso.style.display = 'none';
+    props.style.opacity = '1';
+    teclado.style.opacity = '1';
+  
+  }, 800)
+  
+  sort = Randomizar();
+  Setprops();
+})
+function Game() {
+aviso.style.display = 'flex';
+setTimeout(() => {
+  aviso.style.opacity = '1' 
+},700)
+bots.forEach(botActive => {
+      botActive.addEventListener('click', () => {
+        botActive.style.animation = 'none';
+        let player = botActive.value;
+        if(player != sort) {
+          
+          botActive.style.boxShadow = '2px 8px 16px red';
+          botActive.style.border = '1px solid red';
+          botActive.style.color = 'red';
+          tentativas--;
+          ganado = false;
+          Setprops();
+          
+        }else{
+          botActive.style.boxShadow = '2px 8px 16px green';
+          botActive.style.border = '1px solid green';
+          botActive.style.color = 'green';
+          ganado = true;
+          GameOver();
+        }
+      })
+  })
+}
+
+function Randomizar() {
+  // Tab to edit
+  return Math.floor(Math.random() * 8) + 1;
+}
+
+function Setprops() {
+  let cor;
+  if(tentativas <= 2) {
+    cor = 'red';
+  }else{
+    cor = 'green';
+  }
+  
+  if(tentativas >= 1) {
+  campoTt.style.color = 'red';
+  campoTt.style.opacity = '0'
+  
+    setTimeout(() => {
+    campoTt.style.opacity = '1';
+    campoTt.style.color = cor;
+    campoTt.textContent = 'Número de tentativas: ' + tentativas;
+  }, 500);
+} else{
+    GameOver();
+  }
+}
+Game();
+
+function GameOver() {
+  over.style.display = 'flex';
+  teclado.style.opavity = '0';
+  props.style.opacity = '0';
+  setTimeout(() => {
+  over.style.opacity = '1';
+  props.style.display = 'none';
+  teclado.style.display = 'none';
+  }, 800);
+  let text;
+  let cor;
+  if(ganado === true){
+    text = 'Parabéns, tu é um sortudo!🥳 \n Precione o botão abaixo pra continua!';
+    cor = 'green';
+  }else{
+    text = 'Granda burro 😂, o número sorteido foi ' + sort + ', \n perdeste macaco, 🐒, precione o botão abaixo pra jogar de novo!.';
+    cor = 'red'
+  }
+  classific.textContent = text;
+  classific.style.color = cor;
+  
+  again.addEventListener('click', () => {
+    over.style.opacity = '0';
+    aviso.style.display = 'flex';
+    setTimeout(() => {
+      over.style.display = 'none';
+      aviso.style.opacity = '1';
+    }, 700
+    )
+  })
+}
+
+
+  </script>
+</body>
+</html>
